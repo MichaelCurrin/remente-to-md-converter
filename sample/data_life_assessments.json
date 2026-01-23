@@ -1,0 +1,32 @@
+[
+  {
+    "createdAt": "2019-02-27T19:44:24.363Z",
+    "id": "-LZkU85FKmtw0qi9s0nq",
+    "ratings": {
+      "Health & Fitness": 3,
+      "Love & Relationships": 1,
+      "Career & Education": 6,
+      "Personal Development": 9,
+      "Family": 5,
+      "Friends & Social Life": 3,
+      "Fun & Recreation": 1,
+      "Finances": 4
+    },
+    "createdAtMillis": 1551296664363
+  },
+  {
+    "createdAt": "2019-03-11T08:10:03.074Z",
+    "id": "-L_ZS7UnyZXemng2pmH7",
+    "ratings": {
+      "Health & Fitness": 4,
+      "Love & Relationships": 2,
+      "Career & Education": 1,
+      "Personal Development": 7,
+      "Family": 7,
+      "Friends & Social Life": 4,
+      "Fun & Recreation": 2,
+      "Finances": 7
+    },
+    "createdAtMillis": 1552291803074
+  }
+]

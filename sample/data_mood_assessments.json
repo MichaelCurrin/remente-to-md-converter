@@ -1,0 +1,25 @@
+[
+  {
+    "createdAt": "2019-02-27T19:46:32.876Z",
+    "id": "-LZkVE7S-HzKdS9lHVgx",
+    "notes": "My note",
+    "rating": 2,
+    "createdAtMillis": 1551296792876,
+    "feelings": [
+      "Confused",
+      "Stressed",
+      "Unhappy",
+      "Worried"
+    ]
+  },
+  {
+    "createdAt": "2019-03-05T21:22:20.388Z",
+    "id": "-L_EjH9NPLWYAbmXqoBy",
+    "rating": 3,
+    "createdAtMillis": 1551820940388,
+    "feelings": [
+      "Relieved",
+      "Tired"
+    ]
+  }
+]
