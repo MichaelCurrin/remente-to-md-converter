@@ -21,9 +21,9 @@ def _create_life_metadata(datetime_str: str, ratings: dict[str, int]) -> dict[st
 
 def convert_life_assessments(input_file: str, output_dir: str) -> None:
     """
-    Convert Remente life assessment JSON to individual Obsidian markdown files.
+    Convert Remente life assessment JSON to individual Markdown files.
 
-    Each assessment becomes a timestamped markdown file with YAML frontmatter.
+    Each assessment becomes a timestamped Markdown file with YAML frontmatter.
     Raises on first error encountered.
     """
     notes = lib.load_notes(input_file)

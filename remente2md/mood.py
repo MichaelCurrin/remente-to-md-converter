@@ -27,7 +27,7 @@ def convert_mood_assessments(input_file: str, output_dir: str) -> None:
     """
     Convert Remente mood assessment JSON to individual Markdown files.
 
-    Each assessment becomes a timestamped markdown file with YAML frontmatter.
+    Each assessment becomes a timestamped Markdown file with YAML frontmatter.
     Raises on first error encountered.
     """
     notes = lib.load_notes(input_file)
@@ -40,14 +40,14 @@ def convert_mood_assessments(input_file: str, output_dir: str) -> None:
         try:
             date_str, datetime_str = lib.parse_note_date(note[OUTPUT_CREATED_AT_KEY])
 
-            frontmatter_data = _create_mood_metadata(
+            metadata = _create_mood_metadata(
                 datetime_str,
                 note["rating"],
                 note.get("feelings", []),
             )
 
             lib.write_note(
-                output_path, date_str, note.get("notes", ""), frontmatter_data
+                output_path, date_str, note.get("notes", ""), frontmatter_data=metadata
             )
             processed_count += 1
         except Exception as e:
