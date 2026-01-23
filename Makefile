@@ -10,6 +10,7 @@ INPUT_DIR = sample
 LIFE_PATH = $(INPUT_DIR)/data_life_assessments.json
 MOOD_PATH = $(INPUT_DIR)/data_mood_assessments.json
 
+all: install app-help demo
 
 h help:
 	@grep '^[a-z]' Makefile
