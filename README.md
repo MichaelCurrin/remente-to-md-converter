@@ -14,6 +14,24 @@ _Note that import CSV is note supported because as of Jan 2025 the CSV exports c
 
 ...
 
+
+## Sample output
+
+### Life assessment
+
+```
+
+
+```
+
+### Mood assessment
+
+
+## Installation
+
+## Usage
+
+
 ## License
 
 Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).
