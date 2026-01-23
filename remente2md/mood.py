@@ -25,7 +25,7 @@ def _create_mood_metadata(
 
 def convert_mood_assessments(input_file: str, output_dir: str) -> None:
     """
-    Convert Remente mood assessment JSON to individual Obsidian markdown files.
+    Convert Remente mood assessment JSON to individual Markdown files.
 
     Each assessment becomes a timestamped markdown file with YAML frontmatter.
     Raises on first error encountered.
