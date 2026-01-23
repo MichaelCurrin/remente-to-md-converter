@@ -14,8 +14,16 @@ MOOD_PATH = $(INPUT_DIR)/data_mood_assessments.json
 h help:
 	@grep '^[a-z]' Makefile
 
+
 install:
 	poetry install --no-root
+
+update:
+	poetry update
+
+g install-global:
+	pipx install . --force
+
 
 app-help:
 	poetry run python -m $(APP_DIR) -h
