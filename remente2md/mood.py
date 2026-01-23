@@ -6,7 +6,7 @@ from typing import Any
 from slugify import slugify
 
 from . import lib
-from .constants import CREATED_AT_KEY, MOOD_ASSESSMENT_TAG
+from .constants import INPUT_CREATED_AT_KEY, MOOD_ASSESSMENT_TAG, OUTPUT_CREATED_AT_KEY
 
 
 def _create_mood_metadata(
@@ -16,7 +16,7 @@ def _create_mood_metadata(
     slugified_feelings = [slugify(feeling) for feeling in feelings]
 
     return {
-        CREATED_AT_KEY: datetime_str,
+        INPUT_CREATED_AT_KEY: datetime_str,
         "mood": mood,
         "feelings": slugified_feelings,
         "tags": [MOOD_ASSESSMENT_TAG],
@@ -38,15 +38,17 @@ def convert_mood_assessments(input_file: str, output_dir: str) -> None:
     processed_count = 0
     for note in notes:
         try:
-            date_str, datetime_str = lib.parse_note_date(note["createdAt"])
+            date_str, datetime_str = lib.parse_note_date(note[OUTPUT_CREATED_AT_KEY])
 
-            metadata = _create_mood_metadata(
+            frontmatter_data = _create_mood_metadata(
                 datetime_str,
                 note["rating"],
                 note.get("feelings", []),
             )
 
-            lib.write_note(output_path, date_str, note.get("notes", ""), metadata)
+            lib.write_note(
+                output_path, date_str, note.get("notes", ""), frontmatter_data
+            )
             processed_count += 1
         except Exception as e:
             print(f"Error processing note: {e}")
