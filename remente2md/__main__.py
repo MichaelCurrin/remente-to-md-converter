@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert Remente JSON notes to Obsidian markdown files."""
+"""Convert Remente JSON notes to Markdown files."""
 
 import argparse
 
