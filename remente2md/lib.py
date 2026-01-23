@@ -1,4 +1,4 @@
-"""I/O utilities for reading and writing notes."""
+"""Lib utilities."""
 
 import json
 from pathlib import Path
