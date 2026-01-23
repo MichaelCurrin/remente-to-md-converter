@@ -3,6 +3,8 @@
 
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/remente-to-md-converter?include_prereleases=&sort=semver&color=blue)](https://github.com/MichaelCurrin/remente-to-md-converter/releases/)
 [![Go to Python website](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fremente-to-md-converter%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white)](https://python.org)
+[![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/ "Go to Linux homepage")
+[![OS - macOS](https://img.shields.io/badge/OS-macOS-blue?logo=apple&logoColor=white)](https://www.apple.com/macos/ "Go to Apple homepage")
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 
 
@@ -15,12 +17,16 @@ _Note that import CSV is note supported because as of Jan 2025 the CSV exports c
 
 ## Sample usage
 
-```sh
-# Convert life assessments
-python -m remente2md life exported_data_life_assessments.json life_assessments
+Convert life assessments:
 
-# Convert mood assessments
-python -m remente2md mood exported_data_mood_assessments.json mood_assessments
+```sh
+remente2md life exported-life.json output/life_assessments
+```
+
+Convert mood assessments:
+
+```sh
+remente2md mood exported-mood.json output/mood_assessments
 ```
 
 ## Sample output
@@ -31,22 +37,23 @@ Given input: [sample/data_life_assessments.json](sample/data_life_assessments.js
 
 Result:
 
-```yaml
----
-created_at: 2019-02-27 19:44
-ratings:
-  career-education: 6
-  family: 5
-  finances: 4
-  friends-social-life: 3
-  fun-recreation: 1
-  health-fitness: 3
-  love-relationships: 1
-  personal-development: 9
-tags:
-- remente-life-assessment
----
-```
+- `output/life/2019-02-27.md`
+    ```yaml
+    ---
+    created_at: 2019-02-27 19:44
+    ratings:
+      career-education: 6
+      family: 5
+      finances: 4
+      friends-social-life: 3
+      fun-recreation: 1
+      health-fitness: 3
+      love-relationships: 1
+      personal-development: 9
+    tags:
+    - remente-life-assessment
+    ---
+    ```
 
 ### Mood assessment
 
@@ -54,57 +61,54 @@ Given input: [sample/data_mood_assessments.json](sample/data_mood_assessments.js
 
 Result:
 
-```yaml
----
-created_at: 2019-02-27 19:46
-feelings:
-- confused
-- stressed
-- unhappy
-- worried
-mood: 2
-tags:
-- remente-mood-assessment
----
-
-My note
-```
+- `output/life/2019-02-27.md`
+    ```yaml
+    ---
+    created_at: 2019-02-27 19:46
+    feelings:
+    - confused
+    - stressed
+    - unhappy
+    - worried
+    mood: 2
+    tags:
+    - remente-mood-assessment
+    ---
+    
+    My note
+    ```
 
 
 ## Features
 
-- Converts Remente JSON exports to individual Markdown files (one per assessment date)
-- Adds YAML frontmatter with metadata for Obsidian integration
-- Slugifies rating and feeling keys for consistency (e.g., "Career & Education" → `career-education`)
-- Separate handling for life assessments (with ratings) and mood assessments (with mood and feelings)
-- Timestamped filenames for easy chronological organization
+- Converts Remente JSON exports to individual Markdown files (one per assessment date).
+- Adds YAML frontmatter with metadata for Obsidian integration.
+- Slugifies rating and feeling keys for consistency (e.g. "Career & Education" → `career-education`)
+- Separate handling for life assessments (with ratings) and mood assessments (with mood and feelings).
+- Timestamped filenames for easy chronological organization.
 
 
-
-## Installation
+## Setup and run
 
 Install Python.
 
 Install Poetry.
 
-Install with pip.
+Install with pip:
 
 ```sh
 $ pip install git+https://github.com/MichaelCurrin/rememte-to-md-converter
 ```
 
+## Usage
+
 ```sh
 remente2md --help
 ```
 
-## Usage
-
-### Basic command
-
-```bash
+```sh
 remente2md TYPE INPUT_PATH OUTPUT_PATH
 ```
-
 
 ## Development
 
@@ -116,13 +120,13 @@ cd remente-to-md-converter
 make install
 ```
 
-```bash
+```sh
 poetry run python -m remente2md TYPE INPUT_PATH OUTPUT_PATH
 ```
 
 Show available commands:
 
-```bash
+```sh
 make help
 ```
 
