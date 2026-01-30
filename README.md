@@ -74,7 +74,7 @@ Result:
     tags:
     - remente-mood-assessment
     ---
-    
+
     My note
     ```
 
@@ -92,12 +92,10 @@ Result:
 
 Install Python.
 
-Install Poetry.
-
 Install with pip:
 
 ```sh
-$ pip install git+https://github.com/MichaelCurrin/rememte-to-md-converter
+$ pip install git+https://github.com/MichaelCurrin/remente-to-md-converter
 ```
 
 ## Usage
