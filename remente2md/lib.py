@@ -5,7 +5,7 @@ from pathlib import Path
 from datetime import datetime
 from typing import Any
 
-import frontmatter
+import frontmatter  # type: ignore
 
 
 def load_notes(input_file: str) -> list[dict[str, Any]]:
