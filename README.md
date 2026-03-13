@@ -10,9 +10,9 @@
 
 Export your life and mood assessments from [Remente](https://app.remente.com/) as JSON files and then run this tool to convert them to Markdown files with content and frontmatter.
 
-The use case in mind is for storing the data in an Obsidian vault.
+The use case in mind here is for storing the data in an Obsidian vault.
 
-_Note that import CSV is note supported because as of Jan 2025 the CSV exports come out empty._
+_Note that importing a CSV is not supported because as of January 2025 the Remente CSV exports come out empty._
 
 
 ## Sample usage
@@ -40,16 +40,15 @@ Result:
 - `output/life/2019-02-27.md`
     ```yaml
     ---
-    created_at: 2019-02-27 19:44
-    ratings:
-      career-education: 6
-      family: 5
-      finances: 4
-      friends-social-life: 3
-      fun-recreation: 1
-      health-fitness: 3
-      love-relationships: 1
-      personal-development: 9
+    career_education: 6
+    created_at: 2019-02-27T19:44
+    family: 5
+    finances: 4
+    friends_social_life: 3
+    fun_recreation: 1
+    health_fitness: 3
+    love_relationships: 1
+    personal_development: 9
     tags:
     - remente-life-assessment
     ---
@@ -64,7 +63,7 @@ Result:
 - `output/life/2019-02-27.md`
     ```yaml
     ---
-    created_at: 2019-02-27 19:46
+    created_at: 2019-02-27T19:46
     feelings:
     - confused
     - stressed
@@ -83,7 +82,7 @@ Result:
 
 - Converts Remente JSON exports to individual Markdown files (one per assessment date).
 - Adds YAML frontmatter with metadata for Obsidian integration.
-- Slugifies rating and feeling keys for consistency (e.g. "Career & Education" → `career-education`)
+- Slugifies rating and feeling keys for consistency (e.g. "Career & Education" → `career_education`)
 - Separate handling for life assessments (with ratings) and mood assessments (with mood and feelings).
 - Timestamped filenames for easy chronological organization.
 
@@ -105,7 +104,7 @@ remente2md --help
 ```
 
 ```sh
-remente2md TYPE INPUT_PATH OUTPUT_PATH
+remente2md {life,mood} INPUT_PATH OUTPUT_PATH
 ```
 
 ## Development
