@@ -1,7 +1,7 @@
 [project]
 name = "remente-to-md-converter"
 version = "0.2.0"
-description = ""
+description = "Convert Remente JSON exports of life and mood assessments to Markdown files"
 authors = [
   { name = "Michael Currin", email = "18750745+MichaelCurrin@users.noreply.github.com" },
 ]
@@ -12,8 +12,11 @@ dependencies = [
   "python-slugify (>=8.0.4,<9.0.0)",
 ]
 
+[tool.poetry]
+packages = [{ include = "remente2md" }]
+
 [project.scripts]
-app = "remente2md.__main__:main"
+remente2md = "remente2md.__main__:main"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

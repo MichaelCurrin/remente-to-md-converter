@@ -10,7 +10,9 @@ INPUT_DIR = sample
 LIFE_PATH = $(INPUT_DIR)/data_life_assessments.json
 MOOD_PATH = $(INPUT_DIR)/data_mood_assessments.json
 
-all: install app-help demo
+default: install
+
+all: install check run-help demo
 
 h help:
 	@grep '^[a-z]' Makefile
@@ -26,7 +28,11 @@ g install-global:
 	pipx install . --force
 
 
-app-help:
+check:
+	poetry build
+
+
+run-help:
 	poetry run python -m $(APP_DIR) -h
 
 demo:
