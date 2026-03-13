@@ -21,12 +21,10 @@ def load_notes(input_file: str) -> list[dict[str, Any]]:
 def parse_note_date(created_at: str) -> tuple[str, str]:
     """
     Parse ISO timestamp into date and datetime strings.
-
-    Returns tuple of (date_str for filename, datetime_str for metadata).
     """
     date_obj = datetime.fromisoformat(created_at.replace("Z", "+00:00"))
     date_str = date_obj.strftime(r"%Y-%m-%d")
-    datetime_str = date_obj.strftime(r"%Y-%m-%d %H:%M")
+    datetime_str = date_obj.strftime(r"%Y-%m-%dT%H:%M")
 
     return date_str, datetime_str
 

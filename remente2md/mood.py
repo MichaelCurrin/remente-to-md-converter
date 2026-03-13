@@ -6,17 +6,24 @@ from typing import Any
 from slugify import slugify
 
 from . import lib
-from .constants import INPUT_CREATED_AT_KEY, MOOD_ASSESSMENT_TAG, OUTPUT_CREATED_AT_KEY
+from .constants import (
+    MD_CREATED_AT_KEY,
+    MOOD_ASSESSMENT_TAG,
+    REMENTE_CREATED_AT_KEY,
+    SLUGIFY_REPLACEMENTS,
+)
 
 
 def _create_mood_metadata(
     datetime_str: str, mood: int | None, feelings: list[str]
 ) -> dict[str, Any]:
     """Build metadata dictionary for mood assessment frontmatter."""
-    slugified_feelings = [slugify(feeling) for feeling in feelings]
+    slugified_feelings = [
+        slugify(feeling, replacements=SLUGIFY_REPLACEMENTS) for feeling in feelings
+    ]
 
     return {
-        INPUT_CREATED_AT_KEY: datetime_str,
+        MD_CREATED_AT_KEY: datetime_str,
         "mood": mood,
         "feelings": slugified_feelings,
         "tags": [MOOD_ASSESSMENT_TAG],
@@ -38,7 +45,7 @@ def convert_mood_assessments(input_file: str, output_dir: str) -> None:
     processed_count = 0
     for note in notes:
         try:
-            date_str, datetime_str = lib.parse_note_date(note[OUTPUT_CREATED_AT_KEY])
+            date_str, datetime_str = lib.parse_note_date(note[REMENTE_CREATED_AT_KEY])
 
             metadata = _create_mood_metadata(
                 datetime_str,
@@ -54,4 +61,4 @@ def convert_mood_assessments(input_file: str, output_dir: str) -> None:
             print(f"Error processing note: {e}")
             raise
 
-    print(f"\nSuccessfully processed {processed_count} mood assessment file(s)")
+    print(f"\nCompleted mood assessments: {processed_count}")
