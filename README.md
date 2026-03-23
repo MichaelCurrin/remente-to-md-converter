@@ -107,6 +107,25 @@ remente2md --help
 remente2md {life,mood} INPUT_PATH OUTPUT_PATH
 ```
 
+The recommended flow is to:
+
+1. Install `remente2md` globally using the steps above.
+1. Make a directory.
+1. Create this script in the directory. e.g. `convert.sh`
+    ```sh
+    LIFE_PATH='data_life_assessments.json'
+    MOOD_PATH='data_mood_assessments.json'
+
+    remente2md life "$LIFE_PATH" 'output/life'
+    remente2md mood "$MOOD_PATH" 'output/mood'
+    ```
+1. Download your Remente JSON files to the directory. Rename them to match the names in the script.
+1. Run the script.
+    ```sh
+    bash convert.sh
+    ```
+1. Review your output files in the created `output` directory.
+
 ## Development
 
 Clone the repository and install dependencies using Poetry:
