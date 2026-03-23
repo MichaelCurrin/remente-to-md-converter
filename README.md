@@ -33,7 +33,7 @@ remente2md mood exported-mood.json output/mood_assessments
 
 ### Life assessment
 
-Given input: [sample/data_life_assessments.json](sample/data_life_assessments.json).
+Given input: [sample/data_life_assessments.json](/sample/data_life_assessments.json).
 
 Result:
 
@@ -56,7 +56,7 @@ Result:
 
 ### Mood assessment
 
-Given input: [sample/data_mood_assessments.json](sample/data_mood_assessments.json).
+Given input: [sample/data_mood_assessments.json](/sample/data_mood_assessments.json).
 
 Result:
 
